@@ -7,8 +7,8 @@ from .utils import get_subclass_name_list
 class Animal(models.Model):
 
     name = models.CharField(max_length=101)
-
     class_name = models.CharField(max_length=101, choices=[], default='')
+    file_sound = models.FileField(upload_to='sounds/', null=True, blank=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
