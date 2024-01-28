@@ -1,26 +1,56 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %}Home - My Website{% endblock %}
 
 {% block header %}Welcome to My Website{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-5 rounded-left ligth-green-jumbo mr-2 py-2">
-            <p>A quois sert le site ?</p>
-            <p>Ce site à pour but de découvrir les animaux vivant sur notre planète ainsi que le son qu'il émette lorsqu'ils communiquent.</p>
+<section id="hero">
+    <div class="hero container py-5">
+      <div class="row flex-lg-row-reverse justify-content-center g-5 mt-2 py-5">
+        <div class="col-10 col-sm-8 col-lg-6 py-md-5 text-center">
+          <img src="{% static 'img/earth.png' %}" class="d-block mx-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
         </div>
-        <div class="col-5 rounded-right ligth-green-jumbo p-2">
-            <p>Qulles sont les animaux disponibles ?</p>
-            <p>Vous allez les entendre des animaux de tous les continents, en passant par les animaux de fermes, les oiseaux, les lions jusqu"aux mammifères marins.</p>
+        <div class="col-lg-6 py-md-5">
+          <h1 class="lh-1 mb-3">Venez découvrir le monde qui nous entoure.</h1>
+          <ul class="list-unstyled my-3">
+            <li class="my-2">
+              <h5>1 &nbsp; Ecouter la manière dont communique les animaux</h5>
+            </li>
+            <li class="my-2">
+              <h5>2 &nbsp; Apprendre des notions</h5>
+            </li>
+          </ul>
+          <div>
+            <a href="#" class="icon-link">
+              <h5> C'est parti</h5>
+            </a>
+          </div>
         </div>
-        <div class="col-12">
-            <h2 class="text-center">Je vous souhaite une bonne visite</h2>
-        </div>
-        
+      </div>
     </div>
-   
-   
-</div>
+  </section>
+  
+  <!-- Services Section Starts -->
+  <section id="services" class="py-4">
+    <div class="container">
+      <h1 class="text-center mb-4">Exemples d'animaux à découvrir</h1>
+      <div class="row py-3">
+        <div class="col-md-4">
+          <div class="service-post py-4 px-3 rounded-5">
+            <h3 class="text-center">Chien</h3>
+            <img src="{% static 'img/dog.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="services.html" class="btn btn-primary first-button">Découvrir les animaux</a>
+        
+      </div>
+    </div>
+  </section>
+
+  
+
 {% endblock %}
