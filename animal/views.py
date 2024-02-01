@@ -1,10 +1,17 @@
 from django.shortcuts import render
-
-# Create your views here.
-
-def vie(request):
-    return render(request, 'page.html')
+from django.views.generic import ListView
+from .models import Animal
 
 def home(request):
-    return render(request, 'home.html')
+    animals = Animal.objects.all()[:3]
+    context = {
+        'animals': animals
+        }
+    return render(request, 'home.html', context)
+
+class ListAnimal(ListView):
+    model = Animal
+    template_name = 'list.html'
+    context_object_name = 'animals'
+    ordering = ['-id']  # Order the items by their ID in descending order
         

@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Home - My Website{% endblock %}
+
+{% block header %}Welcome to My Website{% endblock %}
+
+{% block content %}
+<section id="list-animal" class="py-4">
+    <div class="container">
+      <h1 class="text-center mb-4">A ton tour de jouer</h1>
+      <div class="row py-3">
+      {% for animal in animals %}
+        <div class="col-md-4">
+          <div class="animal-post py-4 px-3 rounded-5">
+            <h3 class="text-center">{{animal.name}}</h3>
+            {{ animal.url }}
+            <img src="{{ animal.picture.url }}" class="d-block mx-lg-auto img-fluid rounded-5" alt="" loading="lazy">
+            <div class="text-center mt-3">
+                <button class="btn listen-button">{{animal.verb}}</button>
+                <audio id="audioPlayer" controls class="d-none">
+                    <source src="{{animal.file_sound.url}}" type="audio/wav">
+                    Your browser does not support the audio element.
+                </audio>
+                </div>
+          </div>
+        </div>
+      {% endfor%}
+    </div>
+  </section>
+{% endblock %}
+
+{% block javascript %}
+  <script>
+    $(".listen-button").click(function() {
+        audioPlayer = $(this).next()[0];
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+        } else {
+            audioPlayer.pause();
+        }
+    });
+  </script>
+  {% endblock %}
+
